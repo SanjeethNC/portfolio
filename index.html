@@ -851,7 +851,7 @@
    		<div class="col-twelve">
 
             <!-- form -->
-            <form name="contactForm" id="contactForm" method="post" action="send_mail.php">
+            <form name="contactForm" id="contactForm" method="post" action="">
       			<fieldset>
 
                   <div class="form-field">
@@ -982,34 +982,6 @@
    <script src="js/main.js"></script>
 
 
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    
-    const formData = new FormData(this);
-    const xhr = new XMLHttpRequest();
-    
-    xhr.open('POST', this.action, true);
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            if (xhr.responseText === 'success') {
-                document.getElementById('message-success').style.display = 'block';
-                document.getElementById('message-warning').style.display = 'none';
-                document.getElementById('contactForm').reset();
-            } else {
-                document.getElementById('message-warning').innerText = 'Something went wrong. Please try again.';
-                document.getElementById('message-warning').style.display = 'block';
-                document.getElementById('message-success').style.display = 'none';
-            }
-        } else {
-            document.getElementById('message-warning').innerText = 'Something went wrong. Please try again.';
-            document.getElementById('message-warning').style.display = 'block';
-            document.getElementById('message-success').style.display = 'none';
-        }
-    };
-    xhr.send(formData);
-});
-</script>
 </body>
 
 </html>
